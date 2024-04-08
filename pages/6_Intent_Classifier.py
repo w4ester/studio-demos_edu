@@ -51,7 +51,7 @@ if __name__ == "__main__":
         for i, r in enumerate(responses):
             token_list = [t['generatedToken'] for t in r['prompt']['tokens'][num_tokens:] if t['generatedToken']['token'] != '<|newline|>']
             class_name = ''.join([t['token'] for t in token_list]).replace('▁', ' ')
-            sum_logprobs = sum([t['logprob'] for t in token_list])
+            sum_logprobs = sum(t['logprob'] for t in token_list)
             results[class_name] = round(math.exp(sum_logprobs), 2)
 
         results['Other'] = 1 - sum(results.values())
