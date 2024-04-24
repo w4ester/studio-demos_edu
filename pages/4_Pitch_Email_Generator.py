@@ -124,7 +124,7 @@ if __name__ == '__main__':
 
         else:
             curr_text = st.session_state['completions'][st.session_state['index']]
-            st.subheader(f'Generated Email')
+            st.subheader('Generated Email')
             st.text_area(label=" ", value=curr_text.strip(), height=400)
             st.write(f"Number of words: {len(curr_text.split())}")
             if len(st.session_state['completions']) > 1:

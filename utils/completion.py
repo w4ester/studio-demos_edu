@@ -30,7 +30,7 @@ async def paraphrase_req(sentence, tone):
     async with ClientSession() as session:
         res = await session.post(
             "https://api.ai21.com/studio/v1/paraphrase",
-            headers={f"Authorization": f"Bearer {st.secrets['api-keys']['ai21-api-key']}"},
+            headers={"Authorization": f"Bearer {st.secrets['api-keys']['ai21-api-key']}"},
             json={
                 "text": sentence,
                 "intent": tone.lower(),
